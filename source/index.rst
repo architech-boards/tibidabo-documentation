@@ -12,14 +12,9 @@ If you are a new user of the **Yocto based SDK** we suggest you to read the
 
 :ref:`quick`
 
-otherwise, if you want to have a better understanding of specific topics, we suggest you to have a look to the documentation chapters.
-Furthermore, we encourage you to read the
-
-`official Yocto Project documentation <https://www.yoctoproject.org/documentation>`_.
-
+otherwise, if you want to have a better understanding of specific topics, we suggest you to have a look to the documentation chapters:
 
 .. toctree::
-  :hidden:
   :maxdepth: 2
   :numbered:
 
@@ -29,3 +24,5 @@ Furthermore, we encourage you to read the
   tools
   board
   faq
+
+Furthermore, we encourage you to read the `official Yocto Project documentation <https://www.yoctoproject.org/documentation>`_.
