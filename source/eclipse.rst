@@ -1,7 +1,7 @@
 Eclipse IDE
 ===========
 
-Eclipse is an integrated development environment (IDE). It contains a base workspace and the Yocto plug-in system to compile and debug a program for the tibidabo board.
+Eclipse is an integrated development environment (IDE). It contains a base workspace and the Yocto plug-in system to compile and debug a program for the @board-alias@ board.
 Hereafter, the operating system that runs the IDE/debugger will be named host machine, and the board being debugged will be named target machine.
 The host machine could be running as a virtual machine guest operating system, anyway, the documentation for the host machine running as a guest operating system and as host operating system is exactly the same.
 
@@ -19,7 +19,7 @@ Creating the Project
 --------------------
 
 You can create two types of projects: Autotools-based, or Makefile-based. This section describes how to create Autotools-based projects from within the **Eclipse IDE**.
-Launch Eclipse using Architech Launcher or use **run_eclipse** command or just click on the desktop icon.
+Launch Eclipse using Architech Splashscreen just click on **Develop with Eclipse**.
 
 .. image:: _static/run_eclipse.png
 
@@ -57,7 +57,7 @@ To add more libraries to compile:
 * In LDFLAGS field, you can specify the libraries you use with -lname_library and you can also specify the path where to look for libraries with -Lpath_library
 * Click on Project→Build All to compile the project
 
-**Note:** All libraries must be located in *architech_sdk/architech/tibidabo/sysroot* subdirectories.
+**Note:** All libraries must be located in *architech_sdk/architech/@board-alias@/sysroot* subdirectories.
 
 .. image:: _static/autotools.jpg
 
@@ -66,15 +66,15 @@ To add more libraries to compile:
 Deploying and Debugging the Application
 ---------------------------------------
 
-Connect the tibidabo board to the PC by means of a usb cable to power the board and to have the serial console. Once you built the project and the board is running the image, use minicom to run **tcf-agent** program in target board:
+Connect the @board-alias@ board to the PC by means of a usb cable to power the board and to have the serial console. Once you built the project and the board is running the image, use minicom to run **tcf-agent** program in target board:
 
 ::
 
  Yocto (Built by Poky 7.0.1) 1.2.1                                               
   ttyO0                                                                          
                                                                                 
- tibidabo login: root                                                             
- root@tibidabo:~# /etc/init.d/tcf-agent restart
+ @board-alias@ login: root                                                             
+ root@@board-alias@:~# /etc/init.d/tcf-agent restart
 
 On the Host machine, follow these steps to let **Eclipse** deploy and debug your application:
 
@@ -110,10 +110,10 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 
 .. image:: _static/gdb.jpg
 
-* In GDB Debugger field insert the absoulute path where is located the gdb program of the toolchain. (e.g."/home/architech/architech_sdk/architech/tibidabo/toolchain/sysroots/i686-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gdb")
+* In GDB Debugger field insert the absoulute path where is located the gdb program of the toolchain. (e.g."/home/architech/architech_sdk/architech/@board-alias@/toolchain/sysroots/i686-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gdb")
 
 * In *Debugger* window there is the tab named *Shared Library*, click on its.
-* Add the libraries path "lib" and "usr/lib" of the rootfs (e.g. "/home/architech/architech_sdk/architech/tibidabo/sysroot/lib"). These libraries must be the same used in the target board.
+* Add the libraries path "lib" and "usr/lib" of the rootfs (e.g. "/home/architech/architech_sdk/architech/@board-alias@/sysroot/lib"). These libraries must be the same used in the target board.
 
 .. image:: _static/libs.jpg
 
