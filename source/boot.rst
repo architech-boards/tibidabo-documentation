@@ -114,25 +114,18 @@ If an error occurs, the boot ROM jumps to serial downloader boot mode.
 On @board@, **SW1** switches 3, 4, 5, 6 (along with a set of jumpers available on the bottom side of the board) can define
 a custom boot mode so you can simulate your configuration before blowing fuses.
 
-=========================  ===============
-SW1[6:3] = BOOT_CFG1[6:4]  Boot Device
-=========================  ===============
-1100                       SD regular boot
-1101                       SD fast boot
-0011                       Serial NOR
-0010                       SATA
-=========================  ===============
+======================================  ===============
+SW1[6:3] = BOOT_CFG[24]-BOOT_CFG1[6:4]  Boot Device
+======================================  ===============
+1100                                    SD regular boot
+1101                                    SD fast boot
+0011                                    Serial NOR
+0010                                    SATA
+======================================  ===============
 
 For example, this is the selection of the boot from SD card (fast boot)
 
 .. image:: _static/boot_switches_device_selection.jpg
-    :align: center
-
-**SW1[6] switch goes right to BOOT_CFG2[4]**. The SD card socket on @board@ is connected to processor's USDHC3, this means
-that, if you want to boot from SD card, **BOOT_CFG2[4:3]** should then be set to *10* (USDHC3), therefore you need to set
-**SW1[6] = 1** and **R162 must not be mounted**.
-
-.. image:: _static/boot_switches_usdhc3.jpg
     :align: center
 
 .. _bootloader_deploy_label:
