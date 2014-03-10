@@ -66,7 +66,7 @@ To add more libraries to compile:
 Deploying and Debugging the Application
 ---------------------------------------
 
-Connect the tibidabo board to the PC by means of a usb cable to power the board and to have the serial console. Once you built the project and the board is running the image, use minicom (refer to section :ref:`usbSerial` to know how to configure minicom) to run **tcf-agent** program in target board:
+Connect the tibidabo board to the PC by means of a usb cable to power the board and to have the serial console. Once you built the project and the board is running the image, use minicom to run **tcf-agent** program in target board:
 
 ::
 
