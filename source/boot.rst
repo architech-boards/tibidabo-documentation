@@ -17,7 +17,7 @@ BOOT_MODE[1:0]  Boot Type
 **BOOT_MODE[1]** is read from **SRC_BOOT_MODE1** pin (F12). **BOOT_MODE[0]** is read from
 **SRC_BOOT_MODE0** pin (C12).
 
-On Tibidabo, switches 1 and 2 of **SW1** let you define the values for **BOOT_MODE** register:
+On @board@, switches 1 and 2 of **SW1** let you define the values for **BOOT_MODE** register:
 
 * SW1 switch 1 controls BOOT_MODE[0]
 
@@ -47,7 +47,7 @@ In *boot from fuses mode* the boot ROM uses the fuses values to decide how to bo
 The boot flow is controlled by **BT_FUSE_SEL** eFUSE:
 * if 1 the boot ROM will load the bootloader according to the state of eFUSEs,
 * if 0 (the device has not yet been programmed) the boot ROM will jump to *serial downloader* mode.
-Tibidabo is shipped with no fuse blown so you can blow the fuses when you think you are ready.
+@board@ is shipped with no fuse blown so you can blow the fuses when you think you are ready.
 
 
 For example, to instruct the processor to boot from **SD card** you can blow the following fuses with
@@ -111,16 +111,16 @@ Internal Boot
 If **BT_FUSE_SEL = 1** all boot options are controlled by the eFUSEs, if **BT_FUSE_SEL = 0** specific boot configuration
 parameters may be set using GPIO pins rather than eFUSEs. The use of GPIOs is intended for **development only**.
 If an error occurs, the boot ROM jumps to serial downloader boot mode.
-On Tibidabo, **SW1** switches 3, 4, 5, 6 (along with a set of jumpers available on the bottom side of the board) can define
+On @board@, **SW1** switches 3, 4, 5, 6 (along with a set of jumpers available on the bottom side of the board) can define
 a custom boot mode so you can simulate your configuration before blowing fuses.
 
 =========================  ===============
-SW1[5:3] = BOOT_CFG1[6:4]  Boot Device
+SW1[6:3] = BOOT_CFG1[6:4]  Boot Device
 =========================  ===============
-100                        SD regular boot
-101                        SD fast boot
-011                        Serial NOR
-010                        SATA
+1100                       SD regular boot
+1101                       SD fast boot
+0011                       Serial NOR
+0010                       SATA
 =========================  ===============
 
 For example, this is the selection of the boot from SD card (fast boot)
@@ -128,7 +128,7 @@ For example, this is the selection of the boot from SD card (fast boot)
 .. image:: _static/boot_switches_device_selection.jpg
     :align: center
 
-**SW1[6] switch goes right to BOOT_CFG2[4]**. The SD card socket on Tibidabo is connected to processor's USDHC3, this means
+**SW1[6] switch goes right to BOOT_CFG2[4]**. The SD card socket on @board@ is connected to processor's USDHC3, this means
 that, if you want to boot from SD card, **BOOT_CFG2[4:3]** should then be set to *10* (USDHC3), therefore you need to set
 **SW1[6] = 1** and **R162 must not be mounted**.
 
