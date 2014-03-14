@@ -64,7 +64,7 @@ release = '1.0.0'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = [ 'install_scripts.rst', 'sdk.rst', 'vm.rst', 'vm-layout.rst', 'yocto_by_hand.rst', 'bitbake.rst', 'hob.rst', 'eclipse.rst', 'qt_creator.rst', 'opkg.rst', 'manual_compilation.rst', 'boot.rst', 'hardware.rst', 'video.rst', 'network.rst', 'serial_console.rst', 'bootloader.rst', 'kernel.rst', 'rootfs.rst', 'meta_layer.rst' ]
+exclude_patterns = [ 'install_scripts.rst', 'sdk.rst', 'vm.rst', 'vm-layout.rst', 'yocto_by_hand.rst', 'bitbake.rst', 'hob.rst', 'eclipse.rst', 'qt_creator.rst', 'opkg.rst', 'manual_compilation.rst', 'boot.rst', 'hardware.rst', 'video.rst', 'network.rst', 'serial_console.rst', 'bootloader.rst', 'kernel.rst', 'rootfs.rst', 'meta_layer.rst', 'build-sd.rst', 'poweron-board.rst' ]
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
