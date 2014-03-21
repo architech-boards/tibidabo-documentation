@@ -116,7 +116,11 @@ Create a HelloWorld project
 
 4. Insert *Author* field and click on *Finish* button. Select *Yes* on the "Open Associated Perspective?" question.
 
-5. Build the project from *Project -> Build All*.
+5. Select *Project→Properties→Yocto Project Settings* and check *Use project specific settings*
+
+.. image:: _static/projectsetting.jpg
+
+6. Build the project from *Project -> Build All*.
 
 Debug the application on the target board
 -----------------------------------------

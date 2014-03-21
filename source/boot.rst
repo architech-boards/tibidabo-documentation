@@ -17,7 +17,7 @@ BOOT_MODE[1:0]  Boot Type
 **BOOT_MODE[1]** is read from **SRC_BOOT_MODE1** pin (F12). **BOOT_MODE[0]** is read from
 **SRC_BOOT_MODE0** pin (C12).
 
-On @board@, switches 1 and 2 of **SW1** let you define the values for **BOOT_MODE** register:
+On Tibidabo, switches 1 and 2 of **SW1** let you define the values for **BOOT_MODE** register:
 
 * SW1 switch 1 controls BOOT_MODE[0]
 
@@ -47,7 +47,7 @@ In *boot from fuses mode* the boot ROM uses the fuses values to decide how to bo
 The boot flow is controlled by **BT_FUSE_SEL** eFUSE:
 * if 1 the boot ROM will load the bootloader according to the state of eFUSEs,
 * if 0 (the device has not yet been programmed) the boot ROM will jump to *serial downloader* mode.
-@board@ is shipped with no fuse blown so you can blow the fuses when you think you are ready.
+Tibidabo is shipped with no fuse blown so you can blow the fuses when you think you are ready.
 
 
 For example, to instruct the processor to boot from **SD card** you can blow the following fuses with
@@ -111,7 +111,7 @@ Internal Boot
 If **BT_FUSE_SEL = 1** all boot options are controlled by the eFUSEs, if **BT_FUSE_SEL = 0** specific boot configuration
 parameters may be set using GPIO pins rather than eFUSEs. The use of GPIOs is intended for **development only**.
 If an error occurs, the boot ROM jumps to serial downloader boot mode.
-On @board@, **SW1** switches 3, 4, 5, 6 (along with a set of jumpers available on the bottom side of the board) can define
+On Tibidabo, **SW1** switches 3, 4, 5, 6 (along with a set of jumpers available on the bottom side of the board) can define
 a custom boot mode so you can simulate your configuration before blowing fuses.
 
 ======================================  ===============

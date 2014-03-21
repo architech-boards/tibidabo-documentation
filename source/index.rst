@@ -1,12 +1,12 @@
-Architech's Tibidabo documentation
-==================================
+Architech's tibidabo documentation
+=======================================
 
 .. image:: _static/tibidabo.png
     :align: center
 
 .. only:: html
 
-Welcome to **Tibidabo** documentation!
+Welcome to **tibidabo** documentation!
 
 If you are a new user of the **Yocto based SDK** we suggest you to read the
 
