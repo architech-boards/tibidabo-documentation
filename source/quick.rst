@@ -1,232 +1,293 @@
 .. _quick:
 
+*****************
 Quick start guide
-^^^^^^^^^^^^^^^^^
+*****************
 
-This document will guide you from importing the virtual machine to the debugging of an Hello World! example on a customized Linux distribution that you will generate with the Yocto toolchain.
+This document will guide you from importing the virtual machine to debugging an *Hello World!* example on a customized Linux distribution you will generate with **OpenEmbedded**/**Yocto** toolchain.
 
-.. include:: vm.rst
+Install
+=======
+.. include:: vdi.rst
 
-Splashscreen Application
-========================
+Such a modification will be effective after a logout and subsquent login or after a reboot of the virtual machine, so just shutdown the virtual machine so you can catch up with the next section.
 
-1. Start the VM
+Patch
+=====
+
+Be sure you have the proper version of sources and binaries by running a patch script.
+
+1. If not already started, start the VM by selecting the virtual machine from the list and by clicking on *Start* button.
 
 .. image:: _static/vbStart.png
+    :align: center
 
-2. Click on the **Architech SDK** icon on the desktop:
+2. Verify that you have a working Internet connection by surfing the web with Firefox or by trying to ping a public server (e.g. *www.google.com*).
 
-.. image:: _static/splash0.jpg
+3. Download and execute the patch script
 
-3. The first screen is composed of two voices, if you click on **ArchiTech** you will be show to the list of the boards installed on the VM. The second voice **3rd Party** is the list boards of other companies.
-Clicking on **ArchiTech**.
+.. raw:: html
 
-.. image:: _static/splash1.jpg
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'quick_rst-host-211' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="quick_rst-host-211" class="language-markup">cd ~/Documents
+ wget http://downloads.architechboards.com/sdk/virtual_machine/patch.sh
+ chmod +x patch.sh
+ ./patch.sh</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
-4. Select the board where you want develop. Here you have a short description of the boards with a photo.
-
-.. image:: _static/splash2.jpg
-
-5. From the new screen, 
-
-.. image:: _static/splash3.jpg
-
-you can:
-
-* start **HOB** (the graphic interface for bitbake) to customize and build your preferred Linux distribution,
-* start **Bitbake** from command line to customize and build your preferred Linux distribution
-* select your preferred editor to write your application, that means the **Eclipse IDE** or **Qt Creator**, 
-* read this documentation
-* update the SDK
-
-Click on **run bitbake**, you will be show a terminal with the enviroment loaded to start to build an image.
-
-Build the core-image-minimal-dev
-================================
-
-1. Open with **vim** the file **local.conf**:
+4. When the script successfully completes, it displays this message
 
 ::
 
-	$ vi conf/local.conf
+ Patch installed correctly
 
-2. Go to the end of the file and add the following lines:
+If instead the script hangs or generates errors, please be sure you have a working Internet connection from inside the virtual machine.
 
-::
-
-	EXTRA_IMAGE_FEATURES = "tools-debug"
-	IMAGE_INSTALL_append = " tcf-agent"
-
-with these lines will be build in the image the **tcf-agent** and the **gdbserver**.
-
-.. note::
-
-	In vim use this commands to edit the file:
-	i	to enter in "insert mode"
-	ESC	to esc from "insert mode"
-	:w	to save the file
-	:q	to exit from vim
-
-	For an useful tutorial use this command on the prompt: vimtutor
-
-3. Build the **core-image-minimal-dev** image with the following command:
-
-::
-
-	$ bitbake core-image-minimal-dev
+Build
+=====
 
 .. important::
 
-	If the target board is a hachiko-tiny the core-image-minimal-dev is named **tiny-image** so use the command:
+ A working internet connection, several GB of free disk space and several hours are required by the build process
 
-	$ bitbake tiny-image
+1. Double click on *Architech SDK* icon you have on the virtual machine desktop.
+
+.. image:: _static/splash0.jpg
+    :align: center
+
+2. The first screen gives you two choices: *ArchiTech* and *3rd Party*. Choose *ArchiTech*.
+
+.. image:: _static/splash1.jpg
+    :align: center
+
+3. Select Tibidabo as board you want develop on. 
+
+.. image:: _static/splashscreen_board_selection.jpg
+    :align: center
+
+4. A new screen opens up from where you can perform a set of actions. Click on *Run bitbake* to obtain a terminal ready to start to build an image.
+
+.. image:: _static/splash3.jpg
+    :align: center
+
+5. Open *local.conf* file:
+
+.. raw:: html
+
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'quick_rst-host-212' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="quick_rst-host-212" class="language-markup">gedit conf/local.conf</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
+
+6. Go to the end of the file and add the following lines:
+
+.. raw:: html
+
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'quick_rst-host-213' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="quick_rst-host-213" class="language-markup">EXTRA_IMAGE_FEATURES_append = " tools-debug debug-tweaks"
+ IMAGE_INSTALL_append = " tcf-agent"</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
+
+This will trigger the installation of a features set onto the final root file system, like *tcf-agent* and *gdbserver*.
+
+7. Save the file and close gedit.
+
+8. Build *core-image-minimal-dev* image by means of the following command:
+
+.. raw:: html
+
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'quick_rst-host-214' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="quick_rst-host-214" class="language-markup">bitbake core-image-minimal-dev</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
+
+At the end of the build process, the image will be saved inside directory:
+
+.. raw:: html
+
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'quick_rst-host-215' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="quick_rst-host-215" class="language-markup">/home/architech/architech_sdk/architech/tibidabo/yocto/build/tmp/deploy/images/tibidabo</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
+
+9. Setup *sysroot* directory on your host machine:
+
+.. raw:: html
+
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'quick_rst-host-216' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="quick_rst-host-216" class="language-markup">sudo tar -xzf /home/architech/architech_sdk/architech/tibidabo/yocto/build/tmp/deploy/images/tibidabo/core-image-minimal-dev-tibidabo.tar.bz2 -C /home/architech/architech_sdk/architech/tibidabo/sysroot/</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
 .. note::
 
-	Is required a internet connection to build the image
+ **sudo** password is: "**architech**"
 
-At the end of the build the image will be automatically saved in *tibidabo/yocto/build/tmp/deploy/images* folder.
+Deploy
+======
 
-8. The next step is copy the image built in *tibidabo/sysroot/* folder:
+.. include:: deploy_rootfs.rst
 
-::
+Boot
+====
 
-	$ sudo tar -zxvf tmp/deploy/images/tibidabo/core-image-minimal-dev.tgz -C /home/architech/architech_sdk/architech/tibidabo/sysroot/
+.. include:: quick_boot.rst
 
-.. note::
+Code
+====
 
-	The sudo password is: **architech**
+The time to create a simple *HelloWorld!* application using **Eclipse** has come. 
 
-.. include:: build-sd.rst
-
-Create a HelloWorld project
-===========================
-
-1. Now you will create a simple **HelloWorld** using **Eclipse**. Return on **Splashscreen** screen and select the voice **Develop with Eclipse** from the menu of the target board.
+1. Return to the **Splashscreen**, which we left on Tibidabo board screen, and click on *Develop with Eclipse*.
 
 .. image:: _static/splash4.jpg
+    :align: center
 
-2. Go to *File -> New -> Project* and select *C/C++ -> C Project* then press *next* button.
+2. Go to *File→ New→ Project*, select *C/C++→ C Project* and press *next* button.
 
 .. image:: _static/eclipse-newprj1.jpg
+    :align: center
 
-3. Insert the project name **HelloWorld** and select *Hello World ANSI C Autotools Project* then press *next* button.
+3. Insert *HelloWorld* as project name, select *Hello World ANSI C Autotools Project* and press *next* button.
 
-.. image:: _static/eclipse-newprj2.jpg
+.. image:: _static/eclipse-new-project.jpg
+    :align: center
 
-4. Insert *Author* field and click on *Finish* button. Select *Yes* on the "Open Associated Perspective?" question.
+4. Insert *Author* field and click on *Finish* button. Select *Yes* on the *Open Associated Perspective?* question.
 
-5. Select *Project→Properties→Yocto Project Settings* and check *Use project specific settings*
+5. Build the project by selecting *Project→ Build All*.
 
-.. image:: _static/projectsetting.jpg
+Debug
+=====
 
-6. Build the project from *Project -> Build All*.
+Use an ethernet cable to connect the board (connector CN16 Port P0) to your PC.
+Configure your workstation ip address as 192.168.0.100.
+Make sure the board can be seen by your host machine:
 
-Debug the application on the target board
------------------------------------------
+.. raw:: html
 
-.. include:: poweron-board.rst
+ <div>
+ <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'quick_rst-board-291' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="quick_rst-board-291" class="language-markup">ifconfig pt0 192.168.0.10</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
-On your Host Operating System open a terminal console (ctrl+alt+t) and run command:
+.. raw:: html
 
-::
-
- minicom -w -s
-
-choose *select port setup* and press **Enter**. Setup the port with the following configuration:
-
-::
-
- A -    Serial Device      : /dev/ttyUSB0
- B - Lockfile Location     : /var/lock
- C -   Callin Program      :
- D -  Callout Program      :
- E -    Bps/Par/Bits       : 115200 8N1
- F - Hardware Flow Control : No
- G - Software Flow Control : No
-
-once you are done configuring the serial port, you are back to minicom main menu and you can select **exit**.
-press the **reset button** on the tibidabo board.
-The login will appear inside the terminal of the tibidabo board:
-
-::
-
- Yocto (Built by Poky 7.0.1) 1.2.1
- ttyO0
-
- tibidabo login:
-
-.. note::
-
-  sometimes you need press enter to view the login
-
-Insert **root** and press **enter**. run command:
-
-::
-
-  ifconfig eth0 192.168.0.10
-  ping 192.168.0.100
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'quick_rst-host-217' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="quick_rst-host-217" class="language-markup">ping 192.168.0.10</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
 If the output is similar to this one:
 
-::
+.. raw:: html
 
- 64 bytes from 192.168.0.100: icmp_req=1 ttl=64 time=0.946 ms                     
- 64 bytes from 192.168.0.100: icmp_req=2 ttl=64 time=0.763 ms                     
- 64 bytes from 192.168.0.100: icmp_req=3 ttl=64 time=0.671 ms                     
- 64 bytes from 192.168.0.100: icmp_req=4 ttl=64 time=0.793 ms
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'quick_rst-host-218' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="quick_rst-host-218" class="language-markup">64 bytes from 192.168.0.100: icmp_req=1 ttl=64 time=0.946 ms
+ 64 bytes from 192.168.0.100: icmp_req=2 ttl=64 time=0.763 ms
+ 64 bytes from 192.168.0.100: icmp_req=3 ttl=64 time=0.671 ms
+ 64 bytes from 192.168.0.100: icmp_req=4 ttl=64 time=0.793 ms</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
-the ethernet connection is ok, then run command:
+then the ethernet connection is ok. Enable the remote debug with Yocto by typing this command on Tibidabo console:
 
-::
+.. raw:: html
 
-  /etc/init.d/tcf-agent restart
+ <div>
+ <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'quick_rst-board-292' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="quick_rst-board-292" class="language-markup">/etc/init.d/tcf-agent restart</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
 On the Host machine, follow these steps to let **Eclipse** deploy and debug your application:
 
-* Select Run→Debug Configurations...
+* Select Run→ Debug Configurations...
 * In the left area, expand *C/C++Remote Application*.
 * Locate your project and select it to bring up a new tabbed view in the *Debug Configurations* Dialog.
 
 .. image:: _static/debugform.jpg
+    :align: center
 
-* Insert in *C/C++ Application* the path and the name file where is the binary compiled.
-* Click on "New" button near the drop-down menu in the *Connection* field.
+* Insert in *C/C++ Application* the filepath (on your host machine) of the compiled binary.
+* Click on *New* button near the drop-down menu in the *Connection* field.
 * Select *TCF* icon.
 
 .. image:: _static/tcf1.jpg
+    :align: center
 
 * Insert in *Host Name* and *Connection Name* fields the IP address of the target board. (e.g. 192.168.0.10)
 
 .. image:: _static/tcf2.jpg
+    :align: center
 
 * Then press *Finish*.
 
-* Use the drop-down menu now in the *Connection* field and pick the IP Address you entered earlier.
+* Use the drop-down menu now in the *Connection* field and pick up the IP Address you entered earlier.
 
-* Enter the absolute path on the target into which you want to deploy the application. Use the *Browse* button near *Remote Absolute File Path for C/C++Application:* field. No password is needed.
+* Enter the absolute path on the target into which you want to deploy the cross-compiled application. Use the *Browse* button near *Remote Absolute File Path for C/C++Application:* field. No password is needed.
 
-.. image:: _static/remotepath.png
+.. image:: _static/remotepath.jpg
+    :align: center
 
 * Enter also in the path the name of the application you want to debug. (e.g. Hello)
 
 .. image:: _static/debug2.jpg
+    :align: center
 
 * Select *Debugger* tab
 
 .. image:: _static/gdb.jpg
+    :align: center
 
-* In GDB Debugger field insert the absoulute path where is located the gdb program of the toolchain. (e.g."/home/architech/architech_sdk/architech/tibidabo/toolchain/sysroots/i686-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gdb")
+* In GDB Debugger field, insert the filepath of gdb for your toolchain
 
-* In *Debugger* window there is the tab named *Shared Library*, click on its.
-* Add the libraries path "lib" and "usr/lib" of the rootfs (e.g. "/home/architech/architech_sdk/architech/tibidabo/sysroot/lib"). These libraries must be the same used in the target board.
+.. raw:: html
 
-.. image:: _static/libs.jpg
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'quick_rst-host-219' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="quick_rst-host-219" class="language-markup">/home/architech/architech_sdk/architech/tibidabo/toolchain/sysroots/i686-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gdb</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
-* Click *Debug* to bring up a login screen and login.
+* In *Debugger* window there is a tab named *Shared Library*, click on it.
+* Add the libraries paths *lib* and *usr/lib* of the rootfs (which must be the same used in the target board)
+
+.. raw:: html
+
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'quick_rst-host-2110' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="quick_rst-host-2110" class="language-markup">/home/architech/architech_sdk/architech/tibidabo/sysroot/lib
+ /home/architech/architech_sdk/architech/tibidabo/sysroot/usr/lib</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
+
+* Click *Debug* to login.
 * Accept the debug perspective. 
 
 .. important::
 
-	If debug does not works, check if tcf-agent is running on the board and gdbserver is present.
-
+ If debug does not work, check on the board if *tcf-agent* is running and *gdbserver* has been installed.

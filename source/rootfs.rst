@@ -1,5 +1,5 @@
-Root FS Images
-==============
+Root FS
+=======
 
 By default, Tibidabo's Yocto/OpenEmbedded SDK will generate three different types of files when you build an image:
 
@@ -14,13 +14,37 @@ medium partition (on SD card, flash memory, mSATA disk or USB stick) or on your 
 purposes with the Yocto Project.
 File *.sdcard* can be written out "as is" on the final medium with, for example, *dd* program:
 
-::
+.. raw:: html
 
-    sudo dd if=/path/to/image.sdcard of=/your/sd/card/device
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'rootfs_rst-host-151' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="rootfs_rst-host-151" class="language-markup">sudo dd if=/path/to/image.sdcard of=/path/to/your/final/media/device</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
+
+.. warning::
+
+ Be very careful when you use *dd* to write to a device to pick up the right device, otherwise you can mess up another disk you have on your machine, destroying its content forever!
+
+.. warning::
+ 
+ The content of the media will be lost forever!
 
 .. important::
 
-    Be very careful when you use *dd* to write to a device to pick up the right device, otherwise you can mess up another disk you have on your machine, destroying its content forever!
+ Be sure you **unmount the device** from the filesystem before using **dd** program, you sure don't want to have the operating system interfere during the write process.
+
+After *dd* completes, run:
+
+.. raw:: html
+
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'rootfs_rst-host-152' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="rootfs_rst-host-152" class="language-markup">sync</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
 Generally, especially at the beginning, when you build an image for Tibidabo is more comfortable to create an SD card using
 the *.sdcard* file, because you need almost zero effort to get everything running. However, if you need to develop for a while

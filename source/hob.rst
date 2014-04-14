@@ -6,9 +6,9 @@ Hob
 Hob is a graphical interface for Bitbake. It can be called once Bitbake environment has been setup (see
 :ref:`bitbake_label`) like this:
 
-::
+.. host::
 
-    architech@architech:~/architech_sdk/architech/tibidabo/yocto/build$ hob
+ hob
 
 once open, you are required to select the machine you want to compile against
 

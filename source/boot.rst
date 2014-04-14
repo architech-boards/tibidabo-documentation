@@ -45,29 +45,42 @@ Boot from FUSEs
 
 In *boot from fuses mode* the boot ROM uses the fuses values to decide how to boot.
 The boot flow is controlled by **BT_FUSE_SEL** eFUSE:
+
 * if 1 the boot ROM will load the bootloader according to the state of eFUSEs,
+
 * if 0 (the device has not yet been programmed) the boot ROM will jump to *serial downloader* mode.
+
 Tibidabo is shipped with no fuse blown so you can blow the fuses when you think you are ready.
 
 
 For example, to instruct the processor to boot from **SD card** you can blow the following fuses with
 *u-boot* **fuse** command:
 
-::
+.. raw:: html
 
-    fuse prog 0 5 0x00001040
-    fuse prog 0 6 0x00000010
+ <div>
+ <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-board-221' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-board-221" class="language-markup">fuse prog 0 5 0x00001040
+ fuse prog 0 6 0x00000010</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
-where, the first command setup the boot from sd card, while the second command set **BT_FUSE_SEL = 1**.
+where, the first command setup the boot from sd card, while the second command sets **BT_FUSE_SEL = 1**.
 
 Again, if you want to instruct the processor to boot from **SPI NOR** you can blow the following fuses:
 
-::
+.. raw:: html
 
-    fuse prog 0 5 0x18000030
-    fuse prog 0 6 0x00000010
+ <div>
+ <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-board-222' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-board-222" class="language-markup">fuse prog 0 5 0x18000030
+ fuse prog 0 6 0x00000010</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
-where the first command setup the boot from serial ROM, and the second command set **BT_FUSE_SEL = 1**.
+where the first command setup the boot from serial ROM, and the second command sets **BT_FUSE_SEL = 1**.
 
 Serial Downloader
 -----------------
@@ -80,36 +93,47 @@ you need Freescale's i.MX6 *Manufacturing Tool* that can be downloaded from:
 
 ::
 
-    http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=IMX6_SW
+ http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=IMX6_SW
 
 If you have a Linux operating system instead, you need Boundary Devices *imx_usb_loader* tool that can be obtained
 from their git repository:
 
 ::
 
-    git://github.com/boundarydevices/imx_usb_loader
+ git://github.com/boundarydevices/imx_usb_loader
 
 To compile *imx_usb_loader* project you need *libusb* installed on your distribution. This is the set of commands
 needed on an *Ubuntu* machine to setup the tool:
 
-::
+.. raw:: html
 
-    sudo apt-get install libusb-1.0 libusb-dev libusb-1.0-0-dev
-    git clone git://github.com/boundarydevices/imx_usb_loader
-    cd imx_usb_loader
-    make
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-11' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-11" class="language-markup">sudo apt-get install libusb-1.0 libusb-dev libusb-1.0-0-dev
+ git clone git://github.com/boundarydevices/imx_usb_loader
+ cd imx_usb_loader
+ make</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
 Once the tool is ready, power up the board, then you can download your *u-boot.imx* on the board with this command:
 
-::
+.. raw:: html
 
-    ./imx_usb path/to/your/u-boot.imx
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-12' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-12" class="language-markup">./imx_usb /path/to/your/u-boot.imx</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
 Internal Boot
 -------------
 
-If **BT_FUSE_SEL = 1** all boot options are controlled by the eFUSEs, if **BT_FUSE_SEL = 0** specific boot configuration
-parameters may be set using GPIO pins rather than eFUSEs. The use of GPIOs is intended for **development only**.
+If **BT_FUSE_SEL = 1** then all boot options are controlled by the eFUSEs, otherwise, if **BT_FUSE_SEL = 0** then
+specific boot configuration parameters may be set using GPIO pins rather than eFUSEs. The use of GPIOs is intended for
+**development only**.
 If an error occurs, the boot ROM jumps to serial downloader boot mode.
 On Tibidabo, **SW1** switches 3, 4, 5, 6 (along with a set of jumpers available on the bottom side of the board) can define
 a custom boot mode so you can simulate your configuration before blowing fuses.
@@ -135,81 +159,117 @@ Bootloader deploy
 
 When you boot with *serial downloader*, you just do:
 
-::
+.. raw:: html
 
-    cd /path/to/imx_usb
-    ./imx_usb path/to/your/u-boot.imx
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-13' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-13" class="language-markup">cd /path/to/imx_usb
+ ./imx_usb /path/to/your/u-boot.imx</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
 but when you *boot from fuses* or you want to use the *internal boot* you need to understand where the processor looks for the
 bootloader binary.
-If you want to boot from SPI NOR, you need to write the bootloader binary (*u-boot.imx*) to the flash memory, so you first need
-to read into memory a valid bootloader binary (from ethernet, SD card, mSATA or USB), then:
+If you want to boot from SPI NOR, you need to write the bootloader binary (*u-boot.imx*) to the flash memory.
+You can do it with from *u-boot* or from *Linux* as well. To do it from *u-boot*, you first need to read into memory a valid
+bootloader binary (from ethernet, SD card, mSATA or USB), then:
 
-::
+.. raw:: html
 
-    sf probe
-    sf erase 0x64000
-    sf write $loadaddr 0x400 $filesize
+ <div>
+ <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-board-223' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-board-223" class="language-markup">sf probe
+ sf erase 0x64000
+ sf write $loadaddr 0x400 $filesize</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
 where *loadaddr* is an environment variable where the memory load address is defined, and *filesize* is the size of file 
 *u-boot.imx* that has been previously loaded to memory. Be careful, by default the bootloader is configured to save the
 environment inside the SD card, not in the flash itself. If you prefer to save the environment inside the SPI NOR, 
 open u-boot file:
 
-::
+.. raw:: html
 
-    include/configs/tibidabo.h
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-14' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-14" class="language-markup">/path/to/u-boot/sources/include/configs/tibidabo.h</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
-define macro **CONFIG_ENV_IS_IN_SPI_FLASH**, comment **CONFIG_ENV_IS_IN_MMC** definition, and recompile the bootloader.
+define macro **CONFIG_ENV_IS_IN_SPI_FLASH** by uncommenting it, comment **CONFIG_ENV_IS_IN_MMC** definition, and recompile the bootloader.
 
 In case you want to boot from SD card, you need to write the bootloader starting at address 1024 on the medium, just inside
 the MBR gap. The first partition on the medium must start at an address that leaves enough room for then bootloader and its environment
 variables, block 8192 (with block size of 512) will be more then enough (the environment gets written/read on the SD card with an offset of
 384KB and will be 8KB large). Good, but how do you write your u-boot binary on the SD card? If you do not care to customize
 the bootloader, and you built an image with Yocto/OpenEmbedded, you may have noticed that under the directory where Yocto/OpenEmbedded
-puts all the built images there is a file with extension *.sdcard*. Well, such a file is an iso an can be written *as is*
+puts all the built images there is a file with extension *.sdcard*. Well, such a file is an iso and can be written *as is*
 to the SD card device, just:
 
-::
+.. raw:: html
 
-    sudo dd if=/path/to/image.sdcard of=/your/sd/card/device
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-15' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-15" class="language-markup">sudo dd if=/path/to/image.sdcard of=/path/to/your/sd/card/device</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
 Once the iso has been written, the SD card will have all you need to make it boot from it (it will have bootloader, kernel image, file system
 and kernel modules). Ok, but what if you want to rewrite just the bootload and not the all image? You can overwrite the bootloader on
 the SD card always with *dd*:
 
-::
+.. raw:: html
 
-    sudo dd if=/path/to/u-boot.imx of=/your/sd/card/device bs=1k seek=1
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-16' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-16" class="language-markup">sudo dd if=/path/to/u-boot.imx of=/path/to/your/sd/card/device bs=1k seek=1</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
 Bootscript
 ----------
 
 Once the bootloader has been properly deployed (see :ref:`bootloader_deploy_label`), you turn on the board, the bootloader gets loaded
-and starts running until it gets to the boot command. What happen next? Well, since the board have a lot of options from where to load the kernel
+and starts running until it gets to the boot command. What happens next? Well, since the board have a lot of options from where to load the kernel
 and with which options run the kernel, where is the root file system, which video mode, etc..., you get the best result if you have a simple facility
 to customize the system boot process yourself instead of having a milion combinations script that doesn't do exactly what you want it to do.
-The facility we are talking about is a simple u-boot script that the default boot command tries to load from, in order, mSATA, SD and tftp.
+The facility we are talking about is a simple *u-boot* script that the default boot command tries to load from, in order, mSATA, SD and tftp.
 When u-boot finds it, the script gets executed. That's it. Here is an example of an u-boot script that tries to load the Linux kernel binary
 from the SD card first partition (the partition can be FAT, EXT2, EXT3 or EXT4), and tells the kernel to use the second partition of the SD
 card as root partition:
 
-::
+.. raw:: html
 
-    setenv bootargs ${bootargs} vmalloc=400M root=/dev/mmcblk0p2 rw,rootwait consoleblank=0 video=mxcfb0:dev=hdmi,1280x720M@60,if=RGB24 video=mxcfb1:dev=lcd,CLAA-WVGA,if=RGB666 fbmem=28M,10M
-    mmc dev 0
-    for file_system in fat ext2; do
-        ${file_system}load mmc 0:1 ${loadaddr} /uImage && bootm ${loadaddr}
-    done
-    echo Impossible to boot from SD card partition 1
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-17' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-17" class="language-markup">setenv bootargs ${bootargs} vmalloc=400M root=/dev/mmcblk0p2 rw,rootwait consoleblank=0 video=mxcfb0:dev=hdmi,1280x720M@60,if=RGB24 video=mxcfb1:dev=lcd,CLAA-WVGA,if=RGB666 fbmem=28M,10M
+ mmc dev 0
+ for file_system in fat ext2; do
+     ${file_system}load mmc 0:1 ${loadaddr} /uImage && bootm ${loadaddr}
+ done
+ echo Impossible to boot from SD card partition 1</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
 But that is an u-boot script, not the *bootscript*, to make it suitable as a bootscript you need to give it **mkimage** as input first.
-If you are not that comfortable with mkimage, you can have a simplified interface offered by `create-bootscript.sh <_static/create-bootscript.sh>`_ script.
+If you are not that comfortable with *mkimage*, you can have a simplified interface offered by `create-bootscript.sh <_static/create-bootscript.sh>`_ script.
 The usage is very simple, just run it like this:
 
-::
+.. raw:: html
 
-    ./create-bootscript.sh -i path/to/your/u-boot/script -o /where/to/put/the/generated/bootscript
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-18' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-18" class="language-markup">./create-bootscript.sh -i /path/to/your/u-boot/script -o /path/to/where/to/emit/the/final/bootscript</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
 
 where parameter *-i* stands for source file to take as input and *-o* stands for "binary" file to emit as output.
 
@@ -223,5 +283,4 @@ Copy the output file to where you want it to be found, that is:
 
 .. important::
 
-    Name the script exactly bootscript
-
+    Name the script exactly **bootscript**
