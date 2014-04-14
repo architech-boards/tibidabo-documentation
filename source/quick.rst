@@ -128,7 +128,7 @@ At the end of the build process, the image will be saved inside directory:
 
  <div>
  <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'quick_rst-host-216' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="quick_rst-host-216" class="language-markup">sudo tar -xzf /home/architech/architech_sdk/architech/tibidabo/yocto/build/tmp/deploy/images/tibidabo/core-image-minimal-dev-tibidabo.tar.bz2 -C /home/architech/architech_sdk/architech/tibidabo/sysroot/</code></pre>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="quick_rst-host-216" class="language-markup">sudo tar -xjf /home/architech/architech_sdk/architech/tibidabo/yocto/build/tmp/deploy/images/tibidabo/core-image-minimal-dev-tibidabo.tar.bz2 -C /home/architech/architech_sdk/architech/tibidabo/sysroot/</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
  </div>
