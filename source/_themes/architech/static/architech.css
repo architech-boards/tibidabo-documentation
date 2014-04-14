@@ -5809,6 +5809,10 @@ pre[class*="language-"] a[href]:hover {
 	cursor: help;
 	text-decoration: underline;
 }
+/************************************ readthedocs.css ************************************/
+.injected {
+    visibility: hidden;
+}
 /************************************ replacer.css ************************************/
 .pre-replacer {
     clear: both;
