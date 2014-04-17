@@ -88,7 +88,7 @@ When you want your local repositories to be updated, just:
  <script src="_static/select_text.js"></script>
  </div>
 
-If you really want to download everything by hand, just clone dora branch of meta-tibidabo:
+If you really want to download everything by hand, just clone branch *dora* of *meta-tibidabo*:
 
 .. raw:: html
 

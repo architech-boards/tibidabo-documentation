@@ -90,8 +90,29 @@ directory inside your build directory, we are talking about **local.conf** and *
 *local.conf* contains your customizations for the build process, the most important variables you
 should be interested about are: **MACHINE**, **DISTRO**, **BB_NUMBER_THREADS** and **PARALLEL_MAKE**.
 *MACHINE* defines the target machine you want compile against. The proper value for Tibidabo is 
-tibidabo.
-*DISTRO* let you choose which distribution to use to build the root file systems for the board.
+tibidabo:
+
+.. raw:: html
+
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'bitbake_rst-host-195' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="bitbake_rst-host-195" class="language-markup">MACHINE ??= "tibidabo"</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
+
+*DISTRO* let you choose which distribution to use to build the root file systems for the board. The
+default distribution to use with the board is:
+
+.. raw:: html
+
+ <div>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'bitbake_rst-host-196' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="bitbake_rst-host-196" class="language-markup">DISTRO ?= "poky"</code></pre>
+ <script src="_static/prism.js"></script>
+ <script src="_static/select_text.js"></script>
+ </div>
+
 *BB_NUMBER_THREADS* and *PARALLEL_MAKE* can help you speed up the build process. *BB_NUMBER_THREADS*
 is used to tell Bitbake how many tasks can be executed at the same time, while *PARALLEL_MAKE* contains
 the **-j** option to give to *make* program when issued. Both *BB_NUMBER_THREADS* and *PARALLEL_MAKE*
@@ -102,8 +123,8 @@ machine has/sees four cores, then you should set those variables like this:
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'bitbake_rst-host-195' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="bitbake_rst-host-195" class="language-markup">BB_NUMBER_THREADS ?= "8"
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'bitbake_rst-host-197' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="bitbake_rst-host-197" class="language-markup">BB_NUMBER_THREADS ?= "8"
  PARALLEL_MAKE ?= "-j 8"</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
@@ -126,8 +147,8 @@ The first suggestion is to run:
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'bitbake_rst-host-196' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="bitbake_rst-host-196" class="language-markup">bitbake -h</code></pre>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'bitbake_rst-host-198' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="bitbake_rst-host-198" class="language-markup">bitbake -h</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
  </div>
@@ -138,8 +159,8 @@ During normal activity you will need to simply run a command like:
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'bitbake_rst-host-197' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="bitbake_rst-host-197" class="language-markup">bitbake &lt;recipe name&gt;</code></pre>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'bitbake_rst-host-199' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="bitbake_rst-host-199" class="language-markup">bitbake &lt;recipe name&gt;</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
  </div>
@@ -149,8 +170,8 @@ for example:
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'bitbake_rst-host-198' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="bitbake_rst-host-198" class="language-markup">bitbake core-image-minimal-dev</code></pre>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'bitbake_rst-host-1910' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="bitbake_rst-host-1910" class="language-markup">bitbake core-image-minimal-dev</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
  </div>
@@ -161,8 +182,8 @@ Such a comman will build bootloader, Linux kernel and a root file system.
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'bitbake_rst-host-199' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="bitbake_rst-host-199" class="language-markup">/home/architech/architech_sdk/architech/tibidabo/yocto/poky/meta/recipes-extended/images/core-image-lsb-dev.bb</code></pre>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'bitbake_rst-host-1911' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="bitbake_rst-host-1911" class="language-markup">/home/architech/architech_sdk/architech/tibidabo/yocto/poky/meta/recipes-extended/images/core-image-minimal-dev.bb</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
  </div>
@@ -175,8 +196,8 @@ like recompiling the Linux kernel, no matter what. That action can be achieved w
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'bitbake_rst-host-1910' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="bitbake_rst-host-1910" class="language-markup">bitbake -c compile -f virtual/kernel</code></pre>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'bitbake_rst-host-1912' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="bitbake_rst-host-1912" class="language-markup">bitbake -c compile -f virtual/kernel</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
  </div>

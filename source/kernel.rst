@@ -28,7 +28,7 @@ If you are working with the virtual machine, you will find them under directory:
  </div>
 
 
-We suggest you to **don't work under Bitbake build directory**, you will pay a speed penalty and you can
+We suggest you to **don't work under Bitbake build directory**, you will pay a speed penalty and you could
 have troubles syncronizing the all thing. Just copy them some place else and do what you have to do.
 
 If you didn't build them already with *Bitbake* or you just want to do make every step by hand, you can

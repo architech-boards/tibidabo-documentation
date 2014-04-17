@@ -17,6 +17,7 @@ You can get it with *git*:
  <script src="_static/select_text.js"></script>
  </div>
 
+The machine name for Tibidabo is **tibidabo**.
 
 The strictly BSP related recipes are located under:
 
