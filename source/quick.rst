@@ -137,6 +137,8 @@ At the end of the build process, the image will be saved inside directory:
 
  **sudo** password is: "**architech**"
 
+.. _quick_deploy_rootfs_label:
+
 Deploy
 ======
 
