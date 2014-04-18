@@ -5,6 +5,11 @@ which you can download from this page:
 
  http://downloads.architechboards.com/sdk/virtual_machine/download.html
 
+.. important::
+
+ Compute the MD5SUM value of the zip file you downloaded and compare it to the golden one you find in the download page.
+
+Uncompress the file, and you will get a *.vdi* file that is our virtual disk image.
 The environment contains the SDK for all the boards provided by Architech, Tibidabo included.
 
 Download VirtualBox

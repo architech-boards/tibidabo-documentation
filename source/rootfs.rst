@@ -29,7 +29,7 @@ Where, the path to the image *.sdcard* file inside the SDK virtual machine is:
 
  <div>
  <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'rootfs_rst-host-152' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="rootfs_rst-host-152" class="language-markup">/home/architech/architech_sdk/architech/tibidabo/yocto/build/tmp/deploy/tibidabo</code></pre>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="rootfs_rst-host-152" class="language-markup">/home/architech/architech_sdk/architech/tibidabo/yocto/build/tmp/deploy/images/tibidabo</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
  </div>
