@@ -59,8 +59,8 @@ For example, to instruct the processor to boot from **SD card** you can blow the
 .. raw:: html
 
  <div>
- <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-board-221' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-board-221" class="language-markup">fuse prog 0 5 0x00001040
+ <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-board-211' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-board-211" class="language-markup">fuse prog 0 5 0x00001040
  fuse prog 0 6 0x00000010</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
@@ -73,8 +73,8 @@ Again, if you want to instruct the processor to boot from **SPI NOR** you can bl
 .. raw:: html
 
  <div>
- <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-board-222' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-board-222" class="language-markup">fuse prog 0 5 0x18000030
+ <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-board-212' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-board-212" class="language-markup">fuse prog 0 5 0x18000030
  fuse prog 0 6 0x00000010</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
@@ -178,8 +178,8 @@ bootloader binary (from ethernet, SD card, mSATA or USB), then:
 .. raw:: html
 
  <div>
- <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-board-223' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-board-223" class="language-markup">sf probe
+ <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-board-213' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-board-213" class="language-markup">sf probe
  sf erase 0x64000
  sf write $loadaddr 0x400 $filesize</code></pre>
  <script src="_static/prism.js"></script>
