@@ -59,8 +59,8 @@ For example, to instruct the processor to boot from **SD card** you can blow the
 .. raw:: html
 
  <div>
- <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-board-211' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-board-211" class="language-markup">fuse prog 0 5 0x00001040
+ <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-board-221' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-board-221" class="language-markup">fuse prog 0 5 0x00001040
  fuse prog 0 6 0x00000010</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
@@ -73,8 +73,8 @@ Again, if you want to instruct the processor to boot from **SPI NOR** you can bl
 .. raw:: html
 
  <div>
- <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-board-212' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-board-212" class="language-markup">fuse prog 0 5 0x18000030
+ <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-board-222' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-board-222" class="language-markup">fuse prog 0 5 0x18000030
  fuse prog 0 6 0x00000010</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
@@ -108,8 +108,8 @@ needed on an *Ubuntu* machine to setup the tool:
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-11' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-11" class="language-markup">sudo apt-get install libusb-1.0 libusb-dev libusb-1.0-0-dev
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-21' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-21" class="language-markup">sudo apt-get install libusb-1.0 libusb-dev libusb-1.0-0-dev
  git clone git://github.com/boundarydevices/imx_usb_loader
  cd imx_usb_loader
  make</code></pre>
@@ -122,8 +122,8 @@ Once the tool is ready, power up the board, then you can download your *u-boot.i
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-12' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-12" class="language-markup">./imx_usb /path/to/your/u-boot.imx</code></pre>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-22' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-22" class="language-markup">./imx_usb /path/to/your/u-boot.imx</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
  </div>
@@ -162,8 +162,8 @@ When you boot with *serial downloader*, you just do:
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-13' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-13" class="language-markup">cd /path/to/imx_usb
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-23' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-23" class="language-markup">cd /path/to/imx_usb
  ./imx_usb /path/to/your/u-boot.imx</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
@@ -178,8 +178,8 @@ bootloader binary (from ethernet, SD card, mSATA or USB), then:
 .. raw:: html
 
  <div>
- <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-board-213' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-board-213" class="language-markup">sf probe
+ <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-board-223' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-board-223" class="language-markup">sf probe
  sf erase 0x64000
  sf write $loadaddr 0x400 $filesize</code></pre>
  <script src="_static/prism.js"></script>
@@ -194,8 +194,8 @@ open u-boot file:
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-14' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-14" class="language-markup">/path/to/u-boot/sources/include/configs/tibidabo.h</code></pre>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-24' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-24" class="language-markup">/path/to/u-boot/sources/include/configs/tibidabo.h</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
  </div>
@@ -213,8 +213,8 @@ to the SD card device, just:
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-15' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-15" class="language-markup">sudo dd if=/path/to/image.sdcard of=/path/to/your/sd/card/device</code></pre>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-25' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-25" class="language-markup">sudo dd if=/path/to/image.sdcard of=/path/to/your/sd/card/device</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
  </div>
@@ -226,8 +226,8 @@ the SD card always with *dd*:
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-16' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-16" class="language-markup">sudo dd if=/path/to/u-boot.imx of=/path/to/your/sd/card/device bs=1k seek=1</code></pre>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-26' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-26" class="language-markup">sudo dd if=/path/to/u-boot.imx of=/path/to/your/sd/card/device bs=1k seek=1</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
  </div>
@@ -247,8 +247,8 @@ card as root partition:
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-17' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-17" class="language-markup">setenv bootargs ${bootargs} vmalloc=400M root=/dev/mmcblk0p2 rw,rootwait consoleblank=0 video=mxcfb0:dev=hdmi,1280x720M@60,if=RGB24 video=mxcfb1:dev=lcd,CLAA-WVGA,if=RGB666 fbmem=28M,10M
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-27' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-27" class="language-markup">setenv bootargs ${bootargs} vmalloc=400M root=/dev/mmcblk0p2 rw,rootwait consoleblank=0 video=mxcfb0:dev=hdmi,1280x720M@60,if=RGB24 video=mxcfb1:dev=lcd,CLAA-WVGA,if=RGB666 fbmem=28M,10M
  mmc dev 0
  for file_system in fat ext2; do
      ${file_system}load mmc 0:1 ${loadaddr} /uImage && bootm ${loadaddr}
@@ -265,8 +265,8 @@ The usage is very simple, just run it like this:
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-18' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-18" class="language-markup">./create-bootscript.sh -i /path/to/your/u-boot/script -o /path/to/where/to/emit/the/final/bootscript</code></pre>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'boot_rst-host-28' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="boot_rst-host-28" class="language-markup">./create-bootscript.sh -i /path/to/your/u-boot/script -o /path/to/where/to/emit/the/final/bootscript</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
  </div>

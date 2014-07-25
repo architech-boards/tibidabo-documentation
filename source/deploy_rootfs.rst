@@ -5,8 +5,8 @@ To deploy the root file system, you are going to need a micro SD card.
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'deploy_rootfs_rst-host-51' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="deploy_rootfs_rst-host-51" class="language-markup">sudo dd if=~/architech_sdk/architech/tibidabo/yocto/tmp/deploy/images/tibidabo/core-image-minimal-dev-tibidabo.sdcard of=/path/to/your/sd/card/device</code></pre>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'deploy_rootfs_rst-host-61' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="deploy_rootfs_rst-host-61" class="language-markup">sudo dd if=~/architech_sdk/architech/tibidabo/yocto/tmp/deploy/images/tibidabo/core-image-minimal-dev-tibidabo.sdcard of=/path/to/your/sd/card/device</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
  </div>
@@ -28,8 +28,8 @@ To deploy the root file system, you are going to need a micro SD card.
 .. raw:: html
 
  <div>
- <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'deploy_rootfs_rst-host-52' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="deploy_rootfs_rst-host-52" class="language-markup">sync</code></pre>
+ <div><b class="admonition-host">&nbsp;&nbsp;Host&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'deploy_rootfs_rst-host-62' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="deploy_rootfs_rst-host-62" class="language-markup">sync</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
  </div>

@@ -10,8 +10,8 @@ Under Linux, instead, the default network configuration is:
 .. raw:: html
 
  <div>
- <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'network_rst-board-261' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="network_rst-board-261" class="language-markup">root@tibidabo:~# ifconfig
+ <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'network_rst-board-271' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="network_rst-board-271" class="language-markup">root@tibidabo:~# ifconfig
  eth0      Link encap:Ethernet  HWaddr 1E:ED:19:27:1A:B3
            UP BROADCAST RUNNING MULTICAST  MTU:1492  Metric:1
            RX packets:0 errors:0 dropped:0 overruns:0 frame:0
@@ -35,8 +35,8 @@ but if you take a closer look, you discover that there are more interfaces avail
 .. raw:: html
 
  <div>
- <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'network_rst-board-262' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="network_rst-board-262" class="language-markup">root@tibidabo:~# ifconfig -a
+ <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'network_rst-board-272' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="network_rst-board-272" class="language-markup">root@tibidabo:~# ifconfig -a
  eth0      Link encap:Ethernet  HWaddr 1E:ED:19:27:1A:B3
            UP BROADCAST RUNNING MULTICAST  MTU:1492  Metric:1
            RX packets:0 errors:0 dropped:0 overruns:0 frame:0
@@ -79,8 +79,8 @@ You can change the MAC address of a specific network interface by means of this 
 .. raw:: html
 
  <div>
- <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'network_rst-board-263' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="network_rst-board-263" class="language-markup">ifconfig &lt;port&gt; hw ether &lt;new mac address&gt;</code></pre>
+ <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'network_rst-board-273' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="network_rst-board-273" class="language-markup">ifconfig &lt;port&gt; hw ether &lt;new mac address&gt;</code></pre>
  <script src="_static/prism.js"></script>
  <script src="_static/select_text.js"></script>
  </div>
@@ -95,8 +95,8 @@ you could add the following lines:
 .. raw:: html
 
  <div>
- <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'network_rst-board-264' );">select</a></div>
- <pre class="line-numbers pre-replacer" data-start="1"><code id="network_rst-board-264" class="language-markup">auto pt0
+ <div><b class="admonition-board">&nbsp;&nbsp;Board&nbsp;&nbsp;</b>&nbsp;&nbsp;<a style="float: right;" href="javascript:select_text( 'network_rst-board-274' );">select</a></div>
+ <pre class="line-numbers pre-replacer" data-start="1"><code id="network_rst-board-274" class="language-markup">auto pt0
  iface pt0 inet static
      address 192.168.0.10
      netmask 255.255.255.0
