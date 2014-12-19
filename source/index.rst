@@ -2,9 +2,9 @@
 Architech's Tibidabo documentation
 **********************************
 
-:Version: 1.1.0B
+:Version: 1.1.0C
 :Copyright: Architech
-:Date: 01/09/2014
+:Date: 19/12/2014
 
 .. image:: _static/board.png
     :align: center
